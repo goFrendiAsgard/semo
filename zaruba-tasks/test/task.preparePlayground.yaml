@@ -1,0 +1,10 @@
+tasks:
+
+  preparePlayground:
+    extend: zrbRunShellScript
+    configs:
+      start: |
+        cd "{{ .GetProjectPath "" }}"
+        rm -Rf ./playground
+        mkdir -p ./playground
+

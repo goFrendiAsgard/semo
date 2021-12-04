@@ -1,0 +1,4 @@
+includes:
+  - config.playground.yaml
+  - task.testInitKataProject.yaml
+  - task.preparePlayground.yaml

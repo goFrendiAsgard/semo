@@ -1,0 +1,13 @@
+tasks:
+
+  testInitKataProject:
+    extend: zrbRunShellScript
+    location: ../../playground
+    dependencies:
+      - preparePlayground
+    configRef: playground
+    configs:
+      start: |
+        mkdir -p kates
+        cd kates
+        zaruba please initKataProject

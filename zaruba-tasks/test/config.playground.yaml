@@ -1,0 +1,5 @@
+configs:
+
+  playground:
+    setup: |
+      export ZARUBA_SCRIPTS="{{ .GetProjectPath "index.zaruba.yaml" }}"
