@@ -1,0 +1,10 @@
+tasks:
+
+  addMerapiApp:
+    icon: 🗻
+    extend: makeSimpleNodeJsApp
+    inputs:
+      - appDirectory
+    configs:
+      templateLocations: |
+        ["{{ .GetTaskPath "templates/app" }}"]

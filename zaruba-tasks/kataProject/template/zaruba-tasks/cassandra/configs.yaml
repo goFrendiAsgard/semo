@@ -1,0 +1,17 @@
+configs:
+
+  cassandra:
+    runInLocal: '{{ .GetValue "runCassandraInLocal" }}'
+    ports: |
+      7000
+      7199
+      9042
+
+  cassandraContainer:
+    useImagePrefix: true
+    imageName: cassandra
+    containerName: ztplContainerPrefixCassandra
+    localhost: host.docker.internal
+    checkCommand: |
+      cqlsh -u "{{ .GetEnv "CASSANDRA_USER" }}" -p "{{ .GetEnv "CASSANDRA_PASSWORD" }}" -e "describe keyspaces"
+    volumes: |

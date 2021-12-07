@@ -1,0 +1,6 @@
+tasks:
+
+  test:
+    extend: zrbWrapper
+    dependencies:
+      - testAddComponents

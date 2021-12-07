@@ -1,0 +1,17 @@
+tasks:
+
+  startMysql:
+    icon: 🐬
+    dependencies:
+      - startMysqlContainer
+
+  queryMysql:
+    icon: 📜
+    extend: zrbRunInDockerContainer
+    location: ../../mysql
+    configRef: mysqlContainer
+    envRef: mysql
+    inputs:
+      - sql
+    configs:
+      templateLocation: '{{ .GetProjectPath "mysql/queryTemplate" }}'

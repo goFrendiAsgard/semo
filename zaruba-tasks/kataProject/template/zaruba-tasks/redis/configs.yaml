@@ -1,0 +1,15 @@
+configs:
+
+  redis:
+    runInLocal: '{{ .GetValue "runRedisInLocal" }}'
+    ports: |
+      6379
+
+  redisContainer:
+    useImagePrefix: true
+    imageName: redis
+    containerName: ztplContainerPrefixRedis
+    localhost: host.docker.internal
+    checkCommand: |
+      echo "check redis"
+    volumes: |

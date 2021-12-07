@@ -2,4 +2,4 @@ configs:
 
   playground:
     setup: |
-      export ZARUBA_SCRIPTS="{{ .GetProjectPath "index.zaruba.yaml" }}"
+      export ZARUBA_SCRIPTS="{{ .GetProjectPath "core.zaruba.yaml" }}"

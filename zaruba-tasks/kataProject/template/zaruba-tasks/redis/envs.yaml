@@ -1,0 +1,9 @@
+envs:
+
+  redis:
+    ALLOW_EMPTY_PASSWORD:
+      default: "yes"
+      from: REDIS_ALLOW_EMPTY_PASSWORD
+    REDIS_PASSWORD:
+      default: toor
+      from: REDIS_REDIS_PASSWORD

@@ -1,0 +1,57 @@
+tasks:
+
+  startMongodbContainer:
+    icon: 🍃
+    extend: zrbStartDockerContainer
+    location: ../../mongodb
+    inputs:
+      - runMongodbInLocal
+    dependencies:
+      - buildMongodbImage
+    configRefs:
+      - mongodbContainer
+      - mongodb
+    envRefs: 
+      - mongodb
+
+  buildMongodbImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../mongodb
+    timeout: 1h
+    configRefs:
+      - mongodbContainer
+      - mongodb
+    envRefs: 
+      - mongodb
+
+  pushMongodbImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildMongodbImage
+    configRefs:
+      - mongodbContainer
+      - mongodb
+    envRefs: 
+      - mongodb
+
+  stopMongodbContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - mongodbContainer
+      - mongodb
+    envRefs: 
+      - mongodb
+
+  removeMongodbContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../mongodb
+    configRefs:
+      - mongodbContainer
+      - mongodb
+    envRefs: 
+      - mongodb

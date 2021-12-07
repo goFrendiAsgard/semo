@@ -1,0 +1,10 @@
+inputs:
+
+  runCassandraInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run cassandra locally
+    prompt: Run cassandra locally?

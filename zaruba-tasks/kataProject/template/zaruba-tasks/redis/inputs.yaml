@@ -1,0 +1,10 @@
+inputs:
+
+  runRedisInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run redis locally
+    prompt: Run redis locally?

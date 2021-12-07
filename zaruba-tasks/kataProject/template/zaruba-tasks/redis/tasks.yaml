@@ -1,0 +1,15 @@
+tasks:
+
+  startRedis:
+    icon: 🧰
+    dependencies:
+      - startRedisContainer
+
+  flushRedis:
+    icon: 👶
+    extend: zrbRunInDockerContainer
+    location: ../../redis
+    configRef: redisContainer
+    envRef: redis
+    configs:
+      templateLocation: '{{ .GetProjectPath "redis/utilities/flush" }}'

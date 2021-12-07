@@ -1,0 +1,5 @@
+inputs:
+
+  projectContainerPrefix:
+    prompt: Project container prefix
+    description: Project ontainer prefix

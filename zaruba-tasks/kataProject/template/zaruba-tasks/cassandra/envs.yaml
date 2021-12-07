@@ -1,0 +1,54 @@
+envs:
+
+  cassandra:
+    CASSANDRA_BROADCAST_ADDRESS:
+      default: ""
+      from: CASSANDRA_CASSANDRA_BROADCAST_ADDRESS
+    CASSANDRA_CLUSTER_NAME:
+      default: My Cluster
+      from: CASSANDRA_CASSANDRA_CLUSTER_NAME
+    CASSANDRA_COMMITLOG_DIR:
+      default: /bitnami/cassandra/data/commitlog
+      from: CASSANDRA_CASSANDRA_COMMITLOG_DIR
+    CASSANDRA_CQL_PORT_NUMBER:
+      default: "9042"
+      from: CASSANDRA_CASSANDRA_CQL_PORT_NUMBER
+    CASSANDRA_DATACENTER:
+      default: dc1
+      from: CASSANDRA_CASSANDRA_DATACENTER
+    CASSANDRA_ENABLE_RPC:
+      default: "true"
+      from: CASSANDRA_CASSANDRA_ENABLE_RPC
+    CASSANDRA_ENABLE_USER_DEFINED_FUNCTIONS:
+      default: "false"
+      from: CASSANDRA_CASSANDRA_ENABLE_USER_DEFINED_FUNCTIONS
+    CASSANDRA_ENDPOINT_SNITCH:
+      default: SimpleSnitch
+      from: CASSANDRA_CASSANDRA_ENDPOINT_SNITCH
+    CASSANDRA_HOST:
+      default: ""
+      from: CASSANDRA_CASSANDRA_HOST
+    CASSANDRA_JMX_PORT_NUMBER:
+      default: "7199"
+      from: CASSANDRA_CASSANDRA_JMX_PORT_NUMBER
+    CASSANDRA_NUM_TOKENS:
+      default: "256"
+      from: CASSANDRA_CASSANDRA_NUM_TOKENS
+    CASSANDRA_PASSWORD:
+      default: cassandra
+      from: CASSANDRA_CASSANDRA_PASSWORD
+    CASSANDRA_PASSWORD_SEEDER:
+      default: "no"
+      from: CASSANDRA_CASSANDRA_PASSWORD_SEEDER
+    CASSANDRA_RACK:
+      default: rack1
+      from: CASSANDRA_CASSANDRA_RACK
+    CASSANDRA_SEEDS:
+      default: ""
+      from: CASSANDRA_CASSANDRA_SEEDS
+    CASSANDRA_TRANSPORT_PORT_NUMBER:
+      default: "7000"
+      from: CASSANDRA_CASSANDRA_TRANSPORT_PORT_NUMBER
+    CASSANDRA_USER:
+      default: cassandra
+      from: CASSANDRA_CASSANDRA_USER

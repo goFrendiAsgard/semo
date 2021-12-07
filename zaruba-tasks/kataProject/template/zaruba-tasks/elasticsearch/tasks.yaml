@@ -1,0 +1,6 @@
+tasks:
+
+  startElasticsearch:
+    icon: 🍜
+    dependencies:
+      - startElasticsearchContainer

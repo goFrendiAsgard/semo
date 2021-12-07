@@ -1,0 +1,10 @@
+inputs:
+
+  runMysqlInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run mysql locally
+    prompt: Run mysql locally?

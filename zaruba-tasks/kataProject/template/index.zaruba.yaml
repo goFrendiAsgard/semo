@@ -1,4 +1,10 @@
-includes: []
+includes:
+  - ./zaruba-tasks/mysql/index.yaml
+  - ./zaruba-tasks/redis/index.yaml
+  - ./zaruba-tasks/cassandra/index.yaml
+  - ./zaruba-tasks/mongodb/index.yaml
+  - ./zaruba-tasks/elasticsearch/index.yaml
+
 tasks:
 
   prepare:
@@ -19,7 +25,12 @@ tasks:
   start:
     icon: 🏁
     extend: zrbWrapper
-    dependencies: []
+    dependencies:
+      - startMysql
+      - startRedis
+      - startCassandra
+      - startMongodb
+      - startElasticsearch
 
   run:
     icon: 🏁
@@ -29,7 +40,12 @@ tasks:
   startContainers:
     icon: 🐳
     extend: zrbWrapper
-    dependencies: []
+    dependencies:
+      - startMysqlContainer
+      - startRedisContainer
+      - startCassandraContainer
+      - startMongodbContainer
+      - startElasticsearchContainer
 
   runContainers:
     icon: 🐳
@@ -39,27 +55,47 @@ tasks:
   stopContainers:
     icon: ✋
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies:
+      - stopMysqlContainer
+      - stopRedisContainer
+      - stopCassandraContainer
+      - stopMongodbContainer
+      - stopElasticsearchContainer
 
   removeContainers:
     icon: ❌
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies:
+      - removeMysqlContainer
+      - removeRedisContainer
+      - removeCassandraContainer
+      - removeMongodbContainer
+      - removeElasticsearchContainer
 
   pullImages:
     icon: 📥
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies: []
 
   pushImages:
     icon: 📤
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies:
+      - pushMysqlImage
+      - pushRedisImage
+      - pushCassandraImage
+      - pushMongodbImage
+      - pushElasticsearchImage
 
   buildImages:
     icon: 🏭
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies:
+      - buildMysqlImage
+      - buildRedisImage
+      - buildCassandraImage
+      - buildMongodbImage
+      - buildElasticsearchImage
 
   prepareDeployments:
     icon: 🔧
@@ -69,9 +105,10 @@ tasks:
   deploy:
     icon: 🏭
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies: []
 
   destroy:
     icon: ❌
     extend: zrbWrapper
-    dependencies: [] 
+    dependencies: []
+

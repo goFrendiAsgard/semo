@@ -1,0 +1,4 @@
+configs:
+
+  kataProject:
+    projectContainerPrefix: '{{ if .GetValue "projectContainerPrefix" }}{{ .GetValue "projectContainerPrefix" }}{{ else }}{{ .Util.Str.ToCamel (.Util.Path.GetDefaultAppName .WorkDirPath) }}{{ end }}'

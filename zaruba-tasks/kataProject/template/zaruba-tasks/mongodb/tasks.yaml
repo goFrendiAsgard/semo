@@ -1,0 +1,6 @@
+tasks:
+
+  startMongodb:
+    icon: 🍃
+    dependencies:
+      - startMongodbContainer

@@ -1,0 +1,3 @@
+includes:
+  - ./zaruba-tasks/kataProject/index.yaml
+  - ./zaruba-tasks/merapi/index.yaml

@@ -1,0 +1,15 @@
+configs:
+
+  mongodb:
+    runInLocal: '{{ .GetValue "runMongodbInLocal" }}'
+    ports: |
+      27017
+
+  mongodbContainer:
+    useImagePrefix: true
+    imageName: mongodb
+    containerName: ztplContainerPrefixMongodb
+    localhost: host.docker.internal
+    checkCommand: |
+      echo "check mongodb"
+    volumes: |

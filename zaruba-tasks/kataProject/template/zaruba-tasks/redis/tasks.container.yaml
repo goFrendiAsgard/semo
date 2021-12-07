@@ -1,0 +1,57 @@
+tasks:
+
+  startRedisContainer:
+    icon: 🧰
+    extend: zrbStartDockerContainer
+    location: ../../redis
+    inputs:
+      - runRedisInLocal
+    dependencies:
+      - buildRedisImage
+    configRefs:
+      - redisContainer
+      - redis
+    envRefs: 
+      - redis
+
+  buildRedisImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../redis
+    timeout: 1h
+    configRefs:
+      - redisContainer
+      - redis
+    envRefs: 
+      - redis
+
+  pushRedisImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildRedisImage
+    configRefs:
+      - redisContainer
+      - redis
+    envRefs: 
+      - redis
+
+  stopRedisContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - redisContainer
+      - redis
+    envRefs: 
+      - redis
+
+  removeRedisContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../redis
+    configRefs:
+      - redisContainer
+      - redis
+    envRefs: 
+      - redis

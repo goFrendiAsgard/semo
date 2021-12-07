@@ -1,0 +1,18 @@
+envs:
+
+  mongodb:
+    MONGODB_DATABASE:
+      default: sample
+      from: MONGODB_MONGODB_DATABASE
+    MONGODB_PASSWORD:
+      default: mongo
+      from: MONGODB_MONGODB_PASSWORD
+    MONGODB_ROOT_PASSWORD:
+      default: toor
+      from: MONGODB_MONGODB_ROOT_PASSWORD
+    MONGODB_ROOT_USER:
+      default: root
+      from: MONGODB_MONGODB_ROOT_USER
+    MONGODB_USERNAME:
+      default: mongo
+      from: MONGODB_MONGODB_USERNAME

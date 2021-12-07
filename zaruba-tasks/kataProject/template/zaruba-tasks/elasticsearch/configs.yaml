@@ -1,0 +1,16 @@
+configs:
+
+  elasticsearch:
+    runInLocal: '{{ .GetValue "runElasticsearchInLocal" }}'
+    ports: |
+      9200
+      9300
+
+  elasticsearchContainer:
+    useImagePrefix: true
+    imageName: elasticsearch
+    containerName: ztplContainerPrefixElasticsearch
+    localhost: host.docker.internal
+    checkCommand: |
+      echo "check elasticsearch"
+    volumes: |

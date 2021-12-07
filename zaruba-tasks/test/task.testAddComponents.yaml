@@ -1,6 +1,6 @@
 tasks:
 
-  testInitKataProject:
+  testAddComponents:
     extend: zrbRunShellScript
     location: ../../playground
     dependencies:
@@ -11,3 +11,5 @@ tasks:
         mkdir -p kates
         cd kates
         zaruba please initKataProject
+        zaruba please addMerapiApp appDirectory=merapi
+        zaruba please addMerapiAppRunner appDirectory=merapi

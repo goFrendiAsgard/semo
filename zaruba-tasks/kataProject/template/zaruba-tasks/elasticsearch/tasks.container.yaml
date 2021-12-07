@@ -1,0 +1,57 @@
+tasks:
+
+  startElasticsearchContainer:
+    icon: 🍜
+    extend: zrbStartDockerContainer
+    location: ../../elasticsearch
+    inputs:
+      - runElasticsearchInLocal
+    dependencies:
+      - buildElasticsearchImage
+    configRefs:
+      - elasticsearchContainer
+      - elasticsearch
+    envRefs: 
+      - elasticsearch
+
+  buildElasticsearchImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../elasticsearch
+    timeout: 1h
+    configRefs:
+      - elasticsearchContainer
+      - elasticsearch
+    envRefs: 
+      - elasticsearch
+
+  pushElasticsearchImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildElasticsearchImage
+    configRefs:
+      - elasticsearchContainer
+      - elasticsearch
+    envRefs: 
+      - elasticsearch
+
+  stopElasticsearchContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - elasticsearchContainer
+      - elasticsearch
+    envRefs: 
+      - elasticsearch
+
+  removeElasticsearchContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../elasticsearch
+    configRefs:
+      - elasticsearchContainer
+      - elasticsearch
+    envRefs: 
+      - elasticsearch

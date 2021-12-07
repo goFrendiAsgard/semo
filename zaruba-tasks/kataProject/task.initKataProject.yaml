@@ -6,6 +6,7 @@ tasks:
       Initiate empty zaruba project.
     extend: zrbRunShellScript
     saveLog: false
+    configRef: kataProject
     configs:
       start: |
         if [ -f "index.zaruba.yaml" ]
@@ -14,8 +15,11 @@ tasks:
           exit 1
         fi
         git init
-        cp -rT "{{ .GetTaskPath "template" }}" .
+        REPLACEMENT_MAP='{}'
+        REPLACEMENT_MAP="$("${ZARUBA_BIN}" map set "${REPLACEMENT_MAP}" ztplContainerPrefix "{{ .GetConfig "projectContainerPrefix" }}")"
+        "${ZARUBA_BIN}" generate "{{ .GetTaskPath "template" }}" . "${REPLACEMENT_MAP}"
         touch .env
+        "${ZARUBA_BIN}" project syncEnvFiles "./index.zaruba.yaml"
         echo 🎉🎉🎉
         echo "${_BOLD}${_YELLOW}Project created${_NORMAL}"
 

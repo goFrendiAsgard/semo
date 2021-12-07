@@ -1,0 +1,57 @@
+tasks:
+
+  startMysqlContainer:
+    icon: 🐬
+    extend: zrbStartDockerContainer
+    location: ../../mysql
+    inputs:
+      - runMysqlInLocal
+    dependencies:
+      - buildMysqlImage
+    configRefs:
+      - mysqlContainer
+      - mysql
+    envRefs: 
+      - mysql
+
+  buildMysqlImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../mysql
+    timeout: 1h
+    configRefs:
+      - mysqlContainer
+      - mysql
+    envRefs: 
+      - mysql
+
+  pushMysqlImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildMysqlImage
+    configRefs:
+      - mysqlContainer
+      - mysql
+    envRefs: 
+      - mysql
+
+  stopMysqlContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - mysqlContainer
+      - mysql
+    envRefs: 
+      - mysql
+
+  removeMysqlContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../mysql
+    configRefs:
+      - mysqlContainer
+      - mysql
+    envRefs: 
+      - mysql

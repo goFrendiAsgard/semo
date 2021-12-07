@@ -1,0 +1,3 @@
+includes:
+  - task.addMerapiApp.yaml
+  - task.addMerapiAppRunner.yaml

@@ -1,0 +1,17 @@
+tasks:
+
+  startCassandra:
+    icon: 👀
+    dependencies:
+      - startCassandraContainer
+
+  queryCassandra:
+    icon: 📜
+    extend: zrbRunInDockerContainer
+    location: ../../cassandra
+    configRef: cassandraContainer
+    envRef: cassandra
+    inputs:
+      - sql
+    configs:
+      templateLocation: '{{ .GetProjectPath "cassandra/queryTemplate" }}'
