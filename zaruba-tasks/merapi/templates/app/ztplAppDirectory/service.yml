@@ -1,0 +1,48 @@
+schema: kata.ai/schema/merapi/1.0
+name: "${package.name}"
+version: "${package.version}"
+plugins:
+  - service
+  - proxy
+  - express
+main: main
+components:
+  main: Main
+  knex:
+    type: component
+    path: stores/knex
+    load: true
+merapi:
+  logging:
+    level: info
+stores:
+  knex:
+    client: "${$MYSQL_CLIENT}"
+    connection:
+      host: "${$MYSQL_HOST}"
+      user: "${$MYSQL_USERNAME}"
+      password: "${$MYSQL_PASSWORD}"
+      port: "${$MYSQL_PORT}"
+      database: "${$MYSQL_DATABASE}"
+      db: "${$MYSQL_DATABASE}"
+      encrypt: true
+    pool:
+      min: 2
+      max: 10
+    migrations:
+      tableName: migrations
+  botTemplate: managers/BotTemplateManager
+service:
+  host: 0.0.0.0
+  port: "${$SERVICE_PORT}"
+  api.v1:
+    createBotTemplate: botTemplate.createBotTemplate
+    updateBotTemplate: botTemplate.updateBotTemplate
+    getBotTemplates: botTemplate.getBotTemplates
+    deleteBotTemplate: botTemplate.deleteBotTemplate
+app:
+  host: 0.0.0.0
+  port: "${$APP_PORT}"
+  routes:
+    GET /:
+      - graphqlController.graphqlServer

@@ -32,8 +32,8 @@ configs:
       ztplAppMigrateCommand
 
   prepareZtplAppName:
-    shouldInstallTs: false
-    shouldCompileTs: false
+    shouldInstallTs: true
+    shouldCompileTs: true
     tsVersion: ''
     shouldRemoveNodeModules: '{{ .GetValue "shouldRemoveZtplAppNameNodeModules" }}'
     shouldCleanNpmCache: '{{ .GetValue "shouldCleanZtplAppNameNpmCache" }}'

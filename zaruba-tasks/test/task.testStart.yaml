@@ -1,0 +1,12 @@
+tasks:
+
+  testStart:
+    extend: zrbRunShellScript
+    location: ../../playground/kates
+    dependencies:
+      - testAddComponents
+    configRef: playground
+    configs:
+      start: |
+        zaruba please start -t
+        zaruba please removeContainers

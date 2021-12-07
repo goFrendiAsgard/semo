@@ -2,4 +2,5 @@ includes:
   - config.playground.yaml
   - task.test.yaml
   - task.testAddComponents.yaml
+  - task.testStart.yaml
   - task.preparePlayground.yaml

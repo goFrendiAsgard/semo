@@ -1,5 +1,6 @@
 configs:
 
   playground:
+    stricMode: true
     setup: |
       export ZARUBA_SCRIPTS="{{ .GetProjectPath "core.zaruba.yaml" }}"

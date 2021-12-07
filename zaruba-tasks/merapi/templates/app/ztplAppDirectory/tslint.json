@@ -1,0 +1,27 @@
+{
+    "defaultSeverity": "warning",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "array-type": false,
+        "curly": false,
+        "forin": false,
+        "interface-over-type-literal": false,
+        "max-line-length": {
+            "options": [
+                120
+            ]
+        },
+        "new-parens": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-angle-bracket-type-assertion": false,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false,
+        "no-console": true,
+        "semicolon": true
+    },
+    "rulesDirectory": []
+}

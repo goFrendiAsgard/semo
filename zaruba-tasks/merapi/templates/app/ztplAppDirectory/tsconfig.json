@@ -1,0 +1,36 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "baseUrl": "./",
+        "sourceMap": true,
+        "sourceRoot": "./",
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "outDir": "./lib",
+        "lib": [
+            "esnext",
+            "dom"
+        ]
+    },
+    "include": [
+        "components/**/*.ts",
+        "components/*.ts",
+        "tests/**/*.ts",
+        "tests/*.ts",
+        "interfaces/*.ts",
+        "interfaces/**/*.ts",
+        "utils/**/*.ts",
+        "utils/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}
