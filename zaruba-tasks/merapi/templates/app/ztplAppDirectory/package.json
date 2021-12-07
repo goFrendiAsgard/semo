@@ -18,6 +18,7 @@
     "lodash": "^4.17.21",
     "merapi": "^0.21.1",
     "merapi-plugin-express": "^0.7.5",
+    "merapi-plugin-proxy": "^1.0.0",
     "merapi-plugin-service": "^0.4.0",
     "mysql": "^2.18.1"
   },
