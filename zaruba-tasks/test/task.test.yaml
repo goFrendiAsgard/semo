@@ -3,4 +3,4 @@ tasks:
   test:
     extend: zrbWrapper
     dependencies:
-      - testStart
+      - testStartContainers

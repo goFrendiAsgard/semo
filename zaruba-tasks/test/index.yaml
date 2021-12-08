@@ -3,4 +3,5 @@ includes:
   - task.test.yaml
   - task.testAddComponents.yaml
   - task.testStart.yaml
+  - task.testStartContainers.yaml
   - task.preparePlayground.yaml

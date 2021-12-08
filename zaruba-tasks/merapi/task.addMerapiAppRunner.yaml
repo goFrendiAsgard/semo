@@ -10,3 +10,8 @@ tasks:
           "{{ .ZarubaHome }}/zaruba-tasks/make/appRunner/native/template",
           "{{ .GetTaskPath "templates/appRunner" }}"
         ]
+      defaultAppPorts: |
+        [
+          "{{ .Template ".GetEnv \\\"APP_PORT\\\"" }}",
+          "{{ .Template ".GetEnv \\\"SERVICE_PORT\\\"" }}"
+        ]

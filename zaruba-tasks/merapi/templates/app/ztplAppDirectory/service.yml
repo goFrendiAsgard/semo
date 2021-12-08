@@ -12,6 +12,11 @@ components:
     type: component
     path: stores/knex
     load: true
+  app:
+    type: express
+    config: app
+  sampleManager: managers/sampleManager
+  sampleController: controllers/sampleController
 merapi:
   logging:
     level: info
@@ -31,18 +36,14 @@ stores:
       max: 10
     migrations:
       tableName: migrations
-  botTemplate: managers/BotTemplateManager
 service:
   host: 0.0.0.0
   port: "${$SERVICE_PORT}"
   api.v1:
-    createBotTemplate: botTemplate.createBotTemplate
-    updateBotTemplate: botTemplate.updateBotTemplate
-    getBotTemplates: botTemplate.getBotTemplates
-    deleteBotTemplate: botTemplate.deleteBotTemplate
+    hello: sampleManager.hello
 app:
   host: 0.0.0.0
   port: "${$APP_PORT}"
   routes:
-    GET /:
-      - graphqlController.graphqlServer
+    GET /hello/:name?:
+      - sampleController.hello

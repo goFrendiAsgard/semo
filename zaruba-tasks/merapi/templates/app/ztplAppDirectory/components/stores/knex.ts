@@ -1,5 +1,4 @@
-
-import * as knex from "knex";
+import {knex} from "knex";
 import { IConfigReader } from "merapi";
 
 export default async function(config: IConfigReader) {

@@ -1,0 +1,18 @@
+tasks:
+
+  testStartContainers:
+    extend: zrbRunShellScript
+    location: ../../playground/kates
+    dependencies:
+      - testStart
+    configRef: playground
+    configs:
+      start: |
+        echo ${_YELLOW}${_BOLD}Starting containers${_NORMAL}
+        zaruba please startContainers -t
+        echo ${_YELLOW}${_BOLD}Waiting for services${_NORMAL}
+        sleep 5
+        echo ${_YELLOW}${_BOLD}Initiating test${_NORMAL}
+        python "{{ .GetTaskPath "test_merapi.py" }}"
+        echo ${_YELLOW}${_BOLD}Removing containers${_NORMAL}
+        zaruba please removeContainers

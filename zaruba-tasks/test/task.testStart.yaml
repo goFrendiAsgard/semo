@@ -8,5 +8,9 @@ tasks:
     configRef: playground
     configs:
       start: |
-        zaruba please start -t
+        echo ${_YELLOW}${_BOLD}Removing containers${_NORMAL}
         zaruba please removeContainers
+        echo ${_YELLOW}${_BOLD}Starting${_NORMAL}
+        zaruba please start -t
+        echo ${_YELLOW}${_BOLD}Stopping${_NORMAL}
+        zaruba please stopContainers
