@@ -8,7 +8,7 @@ tasks:
       - runZtplAppNameInLocal
     dependencies:
       - prepareZtplAppName
-      - startMysqlContainer
+      - migrateZtplAppName
     configRefs:
       - startZtplAppName
       - ztplAppName
@@ -35,16 +35,5 @@ tasks:
       - prepareZtplAppName
     configRefs:
       - testZtplAppName
-      - ztplAppName
-    envRef: ztplAppName
-
-  migrateZtplAppName:
-    icon: 🦆
-    extend: zrbRunShellScript
-    location: ztplAppTaskLocation
-    dependencies:
-      - prepareZtplAppName
-    configRefs:
-      - migrateZtplAppName
       - ztplAppName
     envRef: ztplAppName

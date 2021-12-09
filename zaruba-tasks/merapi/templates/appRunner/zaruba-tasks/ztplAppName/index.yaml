@@ -1,0 +1,7 @@
+includes:
+  - ./configs.yaml
+  - ./envs.yaml
+  - ./inputs.yaml
+  - ./tasks.yaml
+  - ./task.container.yaml
+  - ./task.migration.yaml

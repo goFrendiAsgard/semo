@@ -1,0 +1,26 @@
+tasks:
+
+  createZtplAppNameMysqlDb:
+    icon: 📜
+    extend: queryMysql
+    dependencies:
+      - startMysqlContainer
+    configRef: createZtplAppNameMysqlDb
+    envRef: ztplAppName
+ 
+  knexMigrateZtplAppName:
+    icon: 🦆
+    extend: zrbRunShellScript
+    location: ztplAppTaskLocation
+    dependencies:
+      - prepareZtplAppName
+      - createZtplAppNameMysqlDb
+    configRefs:
+      - ztplAppName
+      - knexMigrateZtplAppName
+    envRef: ztplAppName
+
+  migrateZtplAppName:
+    icon: 🦆
+    dependencies:
+      - knexMigrateZtplAppName

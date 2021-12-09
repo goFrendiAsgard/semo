@@ -27,9 +27,12 @@ configs:
     start: |
       ztplAppTestCommand
 
-  migrateZtplAppName:
+  knexMigrateZtplAppName:
     start: |
-      ztplAppMigrateCommand
+      . "{{ .GetProjectPath "zaruba-tasks/ztplAppName/bash/knexMigrate.sh" }}"
+  
+  createZtplAppNameMysqlDb:
+    sql: CREATE DATABASE IF NOT EXISTS `{{ .GetEnv "MYSQL_DATABASE" }}`;
 
   prepareZtplAppName:
     shouldInstallTs: true

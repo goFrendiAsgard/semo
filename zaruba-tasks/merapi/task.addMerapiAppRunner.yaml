@@ -4,6 +4,7 @@ tasks:
     icon: 🗻
     extend: makeNodeJsAppRunner
     configs:
+      appIcon: 🗻
       templateLocations: |
         [
           "{{ .ZarubaHome }}/zaruba-tasks/make/appRunner/_base/template",

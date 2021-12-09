@@ -5,3 +5,4 @@ tmp
 .previous.values.yaml
 log.zaruba.csv
 playground
+workspace.code-workspace
