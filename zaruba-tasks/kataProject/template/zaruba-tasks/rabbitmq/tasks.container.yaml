@@ -1,0 +1,57 @@
+tasks:
+
+  startRabbitmqContainer:
+    icon: 🐇
+    extend: zrbStartDockerContainer
+    location: ../../rabbitmq
+    inputs:
+      - runRabbitmqInLocal
+    dependencies:
+      - buildRabbitmqImage
+    configRefs:
+      - rabbitmqContainer
+      - rabbitmq
+    envRefs: 
+      - rabbitmq
+
+  buildRabbitmqImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../rabbitmq
+    timeout: 1h
+    configRefs:
+      - rabbitmqContainer
+      - rabbitmq
+    envRefs: 
+      - rabbitmq
+
+  pushRabbitmqImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildRabbitmqImage
+    configRefs:
+      - rabbitmqContainer
+      - rabbitmq
+    envRefs: 
+      - rabbitmq
+
+  stopRabbitmqContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - rabbitmqContainer
+      - rabbitmq
+    envRefs: 
+      - rabbitmq
+
+  removeRabbitmqContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../rabbitmq
+    configRefs:
+      - rabbitmqContainer
+      - rabbitmq
+    envRefs: 
+      - rabbitmq

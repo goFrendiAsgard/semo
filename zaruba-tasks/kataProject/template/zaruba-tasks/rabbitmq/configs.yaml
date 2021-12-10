@@ -1,0 +1,18 @@
+configs:
+
+  rabbitmq:
+    runInLocal: '{{ .GetValue "runRabbitmqInLocal" }}'
+    ports: |
+      5672
+      15672
+
+  rabbitmqContainer:
+    useImagePrefix: true
+    imageName: ztpl-image-prefix-rabbitmq
+    containerName: ztplContainerPrefixRabbitmq
+    localhost: host.docker.internal
+    checkCommand: |
+      rabbitmqctl await_startup
+    afterCheck:
+      sleep 2
+    volumes: |

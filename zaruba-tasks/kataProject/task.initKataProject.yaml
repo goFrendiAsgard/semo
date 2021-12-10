@@ -16,7 +16,8 @@ tasks:
         fi
         git init
         REPLACEMENT_MAP='{}'
-        REPLACEMENT_MAP="$("${ZARUBA_BIN}" map set "${REPLACEMENT_MAP}" ztplContainerPrefix "{{ .GetConfig "projectContainerPrefix" }}")"
+        REPLACEMENT_MAP="$("${ZARUBA_BIN}" map set "${REPLACEMENT_MAP}" ztplContainerPrefix "{{ .Util.Str.ToCamel (.GetConfig "projectContainerPrefix") }}")"
+        REPLACEMENT_MAP="$("${ZARUBA_BIN}" map set "${REPLACEMENT_MAP}" ztpl-image-prefix "{{ .Util.Str.ToKebab (.GetConfig "projectContainerPrefix") }}")"
         "${ZARUBA_BIN}" generate "{{ .GetTaskPath "template" }}" . "${REPLACEMENT_MAP}"
         touch .env
         "${ZARUBA_BIN}" project syncEnvFiles "./index.zaruba.yaml"

@@ -1,0 +1,10 @@
+inputs:
+
+  runRabbitmqInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run rabbitmq locally
+    prompt: Run rabbitmq locally?

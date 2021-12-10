@@ -9,9 +9,11 @@ configs:
 
   cassandraContainer:
     useImagePrefix: true
-    imageName: cassandra
+    imageName: ztpl-image-prefix-cassandra
     containerName: ztplContainerPrefixCassandra
     localhost: host.docker.internal
     checkCommand: |
       cqlsh -u "{{ .GetEnv "CASSANDRA_USER" }}" -p "{{ .GetEnv "CASSANDRA_PASSWORD" }}" -e "describe keyspaces"
+    afterCheck:
+      sleep 2
     volumes: |

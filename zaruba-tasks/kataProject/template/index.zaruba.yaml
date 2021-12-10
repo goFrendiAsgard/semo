@@ -4,6 +4,7 @@ includes:
   - ./zaruba-tasks/cassandra/index.yaml
   - ./zaruba-tasks/mongodb/index.yaml
   - ./zaruba-tasks/elasticsearch/index.yaml
+  - ./zaruba-tasks/rabbitmq/index.yaml
 
 tasks:
 
@@ -31,6 +32,7 @@ tasks:
       - startCassandra
       - startMongodb
       - startElasticsearch
+      - startRabbitmq
 
   run:
     icon: 🏁
@@ -46,6 +48,7 @@ tasks:
       - startCassandraContainer
       - startMongodbContainer
       - startElasticsearchContainer
+      - startRabbitmqContainer
 
   runContainers:
     icon: 🐳
@@ -61,6 +64,7 @@ tasks:
       - stopCassandraContainer
       - stopMongodbContainer
       - stopElasticsearchContainer
+      - stopRabbitmqContainer
 
   removeContainers:
     icon: ❌
@@ -71,6 +75,7 @@ tasks:
       - removeCassandraContainer
       - removeMongodbContainer
       - removeElasticsearchContainer
+      - removeRabbitmqContainer
 
   pullImages:
     icon: 📥
@@ -86,6 +91,7 @@ tasks:
       - pushCassandraImage
       - pushMongodbImage
       - pushElasticsearchImage
+      - pushRabbitmqImage
 
   buildImages:
     icon: 🏭
@@ -96,6 +102,7 @@ tasks:
       - buildCassandraImage
       - buildMongodbImage
       - buildElasticsearchImage
+      - buildRabbitmqImage
 
   prepareDeployments:
     icon: 🔧

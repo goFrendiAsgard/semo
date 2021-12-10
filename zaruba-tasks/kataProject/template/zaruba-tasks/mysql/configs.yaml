@@ -7,10 +7,12 @@ configs:
 
   mysqlContainer:
     useImagePrefix: true
-    imageName: mysql
+    imageName: ztpl-image-prefix-mysql
     containerName: ztplContainerPrefixMysql
     localhost: host.docker.internal
     checkCommand: |
       mysql -u "root" -p{{ .GetEnv "MYSQL_ROOT_PASSWORD" }} -e "SHOW SCHEMAS"
+    afterCheck:
+      sleep 2
     volumes: |
       init.sql:/docker-entrypoint-initdb.d/init.sql

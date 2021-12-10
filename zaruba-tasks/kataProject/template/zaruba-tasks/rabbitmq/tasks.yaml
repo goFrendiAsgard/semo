@@ -1,0 +1,15 @@
+tasks:
+
+  startRabbitmq:
+    icon: 🐇
+    dependencies:
+      - startRabbitmqContainer
+
+  resetrabbitmq:
+    icon: 👶
+    extend: zrbRunInDockerContainer
+    location: ../../rabbitmq
+    configRef: rabbitmqContainer
+    envRef: rabbitmq
+    configs:
+      templateLocation: '{{ .GetProjectPath "rabbitmq/utilities/reset" }}'

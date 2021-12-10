@@ -7,9 +7,11 @@ configs:
 
   mongodbContainer:
     useImagePrefix: true
-    imageName: mongodb
+    imageName: ztpl-image-prefix-mongodb
     containerName: ztplContainerPrefixMongodb
     localhost: host.docker.internal
     checkCommand: |
       echo "check mongodb"
+    afterCheck:
+      sleep 2
     volumes: |
