@@ -1,0 +1,7 @@
+configs:
+
+  prepareNvm:
+    nodeVersion: node
+    start:
+      NODE_VERSION='{{ .GetConfig "nodeVersion" }}'
+      . "{{ .GetProjectPath "zaruba-tasks/nvm/bash/useNvm.sh" }}"

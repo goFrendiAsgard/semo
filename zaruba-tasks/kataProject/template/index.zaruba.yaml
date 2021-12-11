@@ -1,4 +1,5 @@
 includes:
+  - ./zaruba-tasks/nvm/index.yaml
   - ./zaruba-tasks/mysql/index.yaml
   - ./zaruba-tasks/redis/index.yaml
   - ./zaruba-tasks/cassandra/index.yaml

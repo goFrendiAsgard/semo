@@ -1,7 +1,7 @@
 configs:
 
   ztplAppName:
-    nodeVersion: node
+    nodeVersion: 14
     runInLocal: '{{ .GetValue "runZtplAppNameInLocal" }}'
     ports: |
       ztplAppYamlPorts
@@ -30,7 +30,7 @@ configs:
   knexMigrateZtplAppName:
     start: |
       . "{{ .GetProjectPath "zaruba-tasks/ztplAppName/bash/knexMigrate.sh" }}"
-  
+
   createZtplAppNameMysqlDb:
     sql: CREATE DATABASE IF NOT EXISTS `{{ .GetEnv "MYSQL_DATABASE" }}`;
 

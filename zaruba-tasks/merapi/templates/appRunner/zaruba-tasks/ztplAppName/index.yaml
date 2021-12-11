@@ -3,5 +3,5 @@ includes:
   - ./envs.yaml
   - ./inputs.yaml
   - ./tasks.yaml
-  - ./task.container.yaml
-  - ./task.migration.yaml
+  - ./tasks.container.yaml
+  - ./tasks.migration.yaml

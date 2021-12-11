@@ -1,0 +1,11 @@
+tasks:
+
+  prepareNodeLatest:
+    configRef: prepareNvm
+    configs:
+      nodeVersion: node
+
+  prepareNode14:
+    configRef: prepareNvm
+    configs:
+      nodeVersion: 14

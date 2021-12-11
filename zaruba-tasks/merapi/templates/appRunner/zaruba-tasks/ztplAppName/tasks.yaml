@@ -18,6 +18,8 @@ tasks:
     icon: 🔧
     extend: zrbRunShellScript
     location: ztplAppTaskLocation
+    dependencies:
+      - prepareNode14
     inputs:
       - shouldRemoveZtplAppNameNodeModules
       - shouldCleanZtplAppNameNpmCache
