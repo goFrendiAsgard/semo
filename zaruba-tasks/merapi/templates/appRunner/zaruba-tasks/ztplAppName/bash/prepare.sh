@@ -8,7 +8,7 @@ then
     echo "${_BOLD}${_YELLOW}Clean npm cache${_NORMAL}"
     npm cache clean --force
 fi
-if [ ! -d "node_modules" ]
+if [ "${SHOULD_NPM_INSTALL}" = 1 ] || [ ! -d "node_modules" ]
 then
     echo "${_BOLD}${_YELLOW}Install npm packages${_NORMAL}"
     npm install --include=dev
@@ -39,3 +39,4 @@ then
         tsc
     fi
 fi
+echo "${_BOLD}${_YELLOW}Prepared${_NORMAL}"

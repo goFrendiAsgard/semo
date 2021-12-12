@@ -35,6 +35,7 @@ configs:
     sql: CREATE DATABASE IF NOT EXISTS `{{ .GetEnv "MYSQL_DATABASE" }}`;
 
   prepareZtplAppName:
+    shouldNpmInstall: true
     shouldInstallTs: true
     shouldCompileTs: true
     tsVersion: ''
@@ -42,6 +43,7 @@ configs:
     shouldCleanNpmCache: '{{ .GetValue "shouldCleanZtplAppNameNpmCache" }}'
     shouldRebuildNpm: '{{ .GetValue "shouldRebuildZtplAppNameNpm" }}'
     start: |
+      SHOULD_NPM_INSTALL={{ if .Util.Bool.IsTrue (.GetConfig "shouldNpmInstall") }}1{{ else }}0{{ end }}
       SHOULD_INSTALL_TS={{ if .Util.Bool.IsTrue (.GetConfig "shouldInstallTs") }}1{{ else }}0{{ end }}
       SHOULD_COMPILE_TS={{ if .Util.Bool.IsTrue (.GetConfig "shouldCompileTs") }}1{{ else }}0{{ end }}
       TS_VERSION="{{ if .GetConfig "tsVersion" }}@{{ .GetConfig "tsVersion"}}{{ else}}{{ end }}"

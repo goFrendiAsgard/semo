@@ -2,10 +2,12 @@ tasks:
 
   prepareNodeLatest:
     configRef: prepareNvm
+    timeout: 1h
     configs:
       nodeVersion: node
 
   prepareNode14:
     configRef: prepareNvm
+    timeout: 1h
     configs:
       nodeVersion: 14
