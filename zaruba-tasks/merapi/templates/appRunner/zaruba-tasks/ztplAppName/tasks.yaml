@@ -19,7 +19,7 @@ tasks:
     extend: zrbRunShellScript
     location: ztplAppTaskLocation
     dependencies:
-      - prepareNode14
+      - prepareNvm14
     inputs:
       - shouldRemoveZtplAppNameNodeModules
       - shouldCleanZtplAppNameNpmCache
