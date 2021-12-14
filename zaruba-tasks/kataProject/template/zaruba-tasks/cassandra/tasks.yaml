@@ -9,6 +9,8 @@ tasks:
     icon: 📜
     extend: zrbRunInDockerContainer
     location: ../../cassandra
+    dependencies:
+      - startCassandraContainer
     configRef: cassandraContainer
     envRef: cassandra
     inputs:
