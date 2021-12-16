@@ -11,6 +11,7 @@ tasks:
     location: ../../cassandra
     dependencies:
       - startCassandraContainer
+    syncEnv: false
     configRef: cassandraContainer
     envRef: cassandra
     inputs:

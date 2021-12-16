@@ -11,6 +11,7 @@ tasks:
     location: ../../mysql
     dependencies:
       - startMysqlContainer
+    syncEnv: false
     configRef: mysqlContainer
     envRef: mysql
     inputs:
