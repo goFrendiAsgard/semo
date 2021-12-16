@@ -17,4 +17,4 @@ tasks:
     inputs:
       - sql
     configs:
-      templateLocation: '{{ .GetProjectPath "cassandra/queryTemplate" }}'
+      templateLocation: '{{ .GetProjectPath "zaruba-tasks/cassandra/queryTemplate" }}'

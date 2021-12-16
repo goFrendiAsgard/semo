@@ -17,4 +17,4 @@ tasks:
     inputs:
       - sql
     configs:
-      templateLocation: '{{ .GetProjectPath "mysql/queryTemplate" }}'
+      templateLocation: '{{ .GetProjectPath "zaruba-tasks/mysql/queryTemplate" }}'
