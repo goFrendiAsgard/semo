@@ -17,6 +17,7 @@ tasks:
       - createZtplAppNameMysqlDb
     configRefs:
       - ztplAppName
+      - ztplAppNameNvm
       - knexMigrateZtplAppName
     envRef: ztplAppName
 

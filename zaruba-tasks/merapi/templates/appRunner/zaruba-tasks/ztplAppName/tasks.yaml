@@ -12,6 +12,7 @@ tasks:
     configRefs:
       - startZtplAppName
       - ztplAppName
+      - ztplAppNameNvm
     envRef: ztplAppName
 
   prepareZtplAppName:
@@ -27,6 +28,7 @@ tasks:
     configRefs: 
       - prepareZtplAppName
       - ztplAppName
+      - ztplAppNameNvm
     syncEnv: false
 
   testZtplAppName:
@@ -38,4 +40,5 @@ tasks:
     configRefs:
       - testZtplAppName
       - ztplAppName
+      - ztplAppNameNvm
     envRef: ztplAppName
