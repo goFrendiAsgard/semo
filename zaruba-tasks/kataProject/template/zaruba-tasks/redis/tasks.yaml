@@ -12,4 +12,4 @@ tasks:
     configRef: redisContainer
     envRef: redis
     configs:
-      templateLocation: '{{ .GetProjectPath "redis/utilities/flush" }}'
+      templateLocation: '{{ .GetProjectPath "zaruba-tasks/redis/utilities/flush" }}'

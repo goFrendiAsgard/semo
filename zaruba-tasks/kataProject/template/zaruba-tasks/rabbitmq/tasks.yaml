@@ -12,4 +12,4 @@ tasks:
     configRef: rabbitmqContainer
     envRef: rabbitmq
     configs:
-      templateLocation: '{{ .GetProjectPath "rabbitmq/utilities/reset" }}'
+      templateLocation: '{{ .GetProjectPath "zaruba-tasks/rabbitmq/utilities/reset" }}'
