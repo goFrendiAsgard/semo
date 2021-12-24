@@ -15,4 +15,4 @@ configs:
     afterCheck:
       sleep 2
     volumes: |
-      init.sql:/docker-entrypoint-initdb.d/init.sql
+      initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql
