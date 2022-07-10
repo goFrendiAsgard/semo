@@ -29,6 +29,7 @@ _JSON_ENV_MAP="$(python "${_CHART_VALUE_SCRIPT}" "json-env-map" "${_CHART_VALUES
 "${ZARUBA_BIN}" task setEnvs "deployZtplDeploymentName" "${_JSON_ENV_MAP}" "${_DEPLOYMENT_TASK_DIR_PATH}/index.yaml"
 
 echo "Updating python value"
+_PYTHON_VALUE="$(python "${_CHART_VALUE_SCRIPT}" "python-value" "${_CHART_VALUES}")"
 
 ####################################################################
 # read __main__.py
@@ -46,12 +47,14 @@ then
     echo "Pattern not found: ${_VALUE_PATTERN}"
     exit 1
 fi
+_VALUE_LINE="$("${ZARUBA_BIN}" list get "${_MAIN_LINES}" "${_VALUE_INDEX}")"
+_INDENTATION="$("${ZARUBA_BIN}" str getIndentation "${_VALUE_LINE}")"
+_INDENTED_PYTHON_VALUE="$("${ZARUBA_BIN}" str fullIndent "${_PYTHON_VALUE}" "${_INDENTATION}")"
 
 ####################################################################
-# upddate value
+# update value
 
-_PYTHON_VALUE="$(python "${_CHART_VALUE_SCRIPT}" "python-value" "${_CHART_VALUES}")"
-_MAIN_LINES="$("${ZARUBA_BIN}" lines replace "${_MAIN_LINES}" "${_VALUE_INDEX}" "${_PYTHON_VALUE}")"
+_MAIN_LINES="$("${ZARUBA_BIN}" lines replace "${_MAIN_LINES}" "${_VALUE_INDEX}" "${_INDENTED_PYTHON_VALUE}")"
 
 ####################################################################
 # overwrite existing __main__.py

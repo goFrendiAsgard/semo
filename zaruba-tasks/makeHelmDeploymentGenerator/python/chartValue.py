@@ -42,6 +42,7 @@ def create_value_script(obj: Mapping[str, Any]) -> str:
     value_obj = create_val(obj, '')
     raw_value_definition_script = json.dumps(value_obj, indent=4)
     value_definition_script = re.sub(r'(.*)"(os\.getenv.*)"(.*)', r'\1\2\3', raw_value_definition_script, 0, re.MULTILINE)
+    value_definition_script = 'values = ' + value_definition_script + ','
     return value_definition_script
 
 
