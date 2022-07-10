@@ -24,9 +24,9 @@ echo "Append template.env"
 _TEMPLATE_ENV_SCRIPT="$(python "${_CHART_VALUE_SCRIPT}" "env" "${_CHART_VALUES}")"
 echo "${_TEMPLATE_ENV_SCRIPT}" >> "${_DEPLOYMENT_DIR_PATH}/template.env"
 
-echo "Updating task environment"
-_JSON_ENV_MAP="$(python "${_CHART_VALUE_SCRIPT}" "json-env-map" "${_CHART_VALUES}")"
-"${ZARUBA_BIN}" task setEnvs "deployZtplDeploymentName" "${_JSON_ENV_MAP}" "${_DEPLOYMENT_TASK_DIR_PATH}/index.yaml"
+# echo "Updating task environment"
+# _JSON_ENV_MAP="$(python "${_CHART_VALUE_SCRIPT}" "json-env-map" "${_CHART_VALUES}")"
+# "${ZARUBA_BIN}" task setEnvs "deployZtplDeploymentName" "${_JSON_ENV_MAP}" "${_DEPLOYMENT_TASK_DIR_PATH}/index.yaml"
 
 echo "Updating python value"
 _PYTHON_VALUE="$(python "${_CHART_VALUE_SCRIPT}" "python-value" "${_CHART_VALUES}")"
