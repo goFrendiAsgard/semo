@@ -1,0 +1,10 @@
+tasks:
+
+  makeHelmDeploymentGenerator:
+    icon: 🪄
+    extend: zrbMake
+    inputs:
+      - appDirectory
+      - chartName
+    configRef: makeHelmDeploymentGenerator
+    envRef: makeHelmDeploymentGenerator

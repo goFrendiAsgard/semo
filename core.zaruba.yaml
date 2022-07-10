@@ -1,3 +1,4 @@
 includes:
   - ./zaruba-tasks/kataProject/index.yaml
   - ./zaruba-tasks/merapi/index.yaml
+  - ./zaruba-tasks/makeHelmDeploymentGenerator/index.yaml

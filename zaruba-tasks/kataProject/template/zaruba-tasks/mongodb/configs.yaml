@@ -12,6 +12,6 @@ configs:
     localhost: host.docker.internal
     checkCommand: |
       echo "check mongodb"
-    afterCheck:
+    afterCheck: |
       sleep 2
     volumes: |

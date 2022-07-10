@@ -1,0 +1,6 @@
+tasks:
+
+  addZtplAppNameHelmDeployment:
+    icon: 🚢
+    dependencies:
+      - makeZtplAppNameHelmDeploymentTask

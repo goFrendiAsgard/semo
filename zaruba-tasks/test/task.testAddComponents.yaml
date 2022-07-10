@@ -13,3 +13,5 @@ tasks:
         zaruba please initKataProject
         zaruba please addMerapiApp appDirectory=merapi
         zaruba please addMerapiAppRunner appDirectory=merapi
+        zaruba please makeHelmDeploymentGenerator appDirectory=rabbitmq chartName=bitnami/rabbitmq
+        zaruba please makeHelmDeploymentGenerator appDirectory=mysql chartName=bitnami/rabbitmq

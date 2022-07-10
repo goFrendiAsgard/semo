@@ -1,0 +1,12 @@
+configs:
+
+  makeHelmDeploymentGenerator:
+    chartName: '{{ if .GetValue "chartName" }}{{ .GetValue "chartName" }}{{ else }}bitnami/nginx{{ end }}'
+    templateLocations: |
+      [
+        "{{ .GetTaskPath "./templates" }}"
+      ]
+    _prepareReplacementMap: '. "{{ .GetTaskPath "./bash/prepareReplacementMap.sh" }}"'
+    _integrate: |
+      _CHART_VALUE_SCRIPT="{{ .GetTaskPath "python/chartValue.py" }}"
+      . "{{ .GetTaskPath "./bash/registerChart.sh" }}" 

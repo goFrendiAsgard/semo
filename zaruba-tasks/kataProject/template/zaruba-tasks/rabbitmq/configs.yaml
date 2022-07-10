@@ -13,6 +13,6 @@ configs:
     localhost: host.docker.internal
     checkCommand: |
       rabbitmqctl await_startup
-    afterCheck:
+    afterCheck: |
       sleep 2
     volumes: |

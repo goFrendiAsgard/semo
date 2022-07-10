@@ -14,5 +14,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/state-alchemists/zaruba/ma
 git clone git@github.com:goFrendiAsgard/semo.git /home/you/semo
 
 # modify ZARUBA_SCRIPTS variable (put on ~/.bashrc or ~/.zshrc)
-export ZARUBA_SCRIPTS="${ZARUBA_SCRIPTS}:/home/you/semo/core.zaruba.yaml
+export ZARUBA_SCRIPTS="${ZARUBA_SCRIPTS}:/home/you/semo/core.zaruba.yaml"
 ```

@@ -1,0 +1,36 @@
+tasks:
+
+  prepareGenDeploymentName:
+    icon: genAppIcon
+    extend: zrbRunShellScript
+    location: genDeploymentTaskLocation
+    configRefs:
+      - prepareGenDeploymentName
+    envRef: genDeploymentName
+
+  previewGenDeploymentName:
+    icon: genAppIcon
+    extend: zrbPulumiPreview
+    location: genDeploymentTaskLocation
+    timeout: 1h
+    envRef: genDeploymentName
+
+  deployGenDeploymentName:
+    icon: genAppIcon
+    extend: zrbPulumiDeploy
+    location: genDeploymentTaskLocation
+    timeout: 1h
+    dependencies:
+      - prepareGenDeploymentName
+      - zrbSetKubeContext
+    envRef: genDeploymentName
+
+  destroyGenDeploymentName:
+    icon: genAppIcon
+    extend: zrbPulumiDestroy
+    location: genDeploymentTaskLocation
+    timeout: 1h
+    dependencies:
+      - prepareGenDeploymentName
+      - zrbSetKubeContext
+    envRef: genDeploymentName
