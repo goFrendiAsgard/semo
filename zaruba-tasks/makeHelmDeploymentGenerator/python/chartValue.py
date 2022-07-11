@@ -41,8 +41,15 @@ def create_env(obj: Any, obj_key: str) -> Mapping[str, str]:
 def create_value_script(obj: Mapping[str, Any]) -> str:
     value_obj = create_val(obj, '')
     raw_value_definition_script = json.dumps(value_obj, indent=4)
+    # remove quotes
     value_definition_script = re.sub(r'(.*)"(os\.getenv.*)"(.*)', r'\1\2\3', raw_value_definition_script, 0, re.MULTILINE)
     value_definition_script = 'values = ' + value_definition_script + ','
+    # adjust True value
+    value_definition_script = re.sub(r"(os\.getenv\('.*', 'True'\))", r"\1 == 'True'", value_definition_script, 0, re.MULTILINE)
+    # adjust False value
+    value_definition_script = re.sub(r"(os\.getenv\('.*', 'False'\))", r"\1 == 'True'", value_definition_script, 0, re.MULTILINE)
+    # adjust int value
+    value_definition_script = re.sub(r"(os\.getenv\('.*', '[0-9]+'\))", r"int(\1)", value_definition_script, 0, re.MULTILINE)
     return value_definition_script
 
 
