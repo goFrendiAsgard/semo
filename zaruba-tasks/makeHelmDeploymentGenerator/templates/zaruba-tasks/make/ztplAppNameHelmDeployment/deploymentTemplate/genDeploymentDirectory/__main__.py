@@ -3,7 +3,7 @@ from pulumi_kubernetes.helm.v3 import Chart, ChartOpts, LocalChartOpts
 import os
 
 app = Chart(
-    'gen-app-name', 
+    'gen-deployment-name', 
     config=LocalChartOpts(
         path = './chart',
         namespace = os.getenv('NAMESPACE', 'default'),
